@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CONTAINER_NAME=cpp-container
+CONTAINER_NAME=makerspace-calculator
 
 print_help() {
 	cat <<EOF

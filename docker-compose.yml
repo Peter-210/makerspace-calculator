@@ -1,7 +1,7 @@
 services:
   cpp:
     profiles: [parent]
-    container_name: cpp-container
+    container_name: makerspace-calculator
     build:
       context: .
     volumes:

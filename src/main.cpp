@@ -45,7 +45,7 @@ double calculatePrice(const int& hours, const int& minutes) {
 
 	sum += hours * HOUR_PRICE;
 
-	if (minutes < MINUTE_RATE + MINUTE_HALF_RATE) {
+	if (hours == 0 && minutes < MINUTE_RATE + MINUTE_HALF_RATE) {
 		return sum + MINUTE_PRICE;
 	}
 	
