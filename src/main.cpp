@@ -2,6 +2,28 @@
 #include <cmath>
 
 /*
+ * @brief Check if input values are valid
+ *
+ * @param hours = Total hours to print (exclude minutes)
+ * @param minutes = Total minutes to print (exclude hours)
+ */
+bool errorCheck(const int& hours, const int& minutes) {
+	if (hours < 0) {
+		return false;
+	} else {
+		if (minutes >= 0 && minutes < 60) {
+			return true;
+		}
+	}
+
+	if (minutes > 0 && minutes < 60) {
+		return true;
+	}
+
+	return false;
+}
+
+/*
  * @brief Calculate the price of 3D print based on total time to print
  *
  * @return double The price of the 3D print
@@ -37,13 +59,21 @@ double calculatePrice(const int& hours, const int& minutes) {
 
 }
 
-void testCalculation() {
-	for (int i=1; i<60; ++i) {
-		std::cout << "Test: " << i << " Result: " << calculatePrice(0, i) << '\n';
+
+void printPrice(const int& hours, const int& minutes) {
+	if (!errorCheck(hours, minutes)) {
+		std::cout << "ERROR - Invalid time value\n";
+		std::cout << "Inputted Hours: " << hours << '\n';
+		std::cout << "Inputted Minutes: " << minutes << '\n'; 
 	}
+
+	std::cout << "Price: $" << calculatePrice(hours, minutes) << '\n';
 }
 
 int main() {
-	testCalculation();
+	int myHours = 0;
+	int myMinutes = 0;
+
+	printPrice(myHours, myMinutes);
   return 0;
 }
