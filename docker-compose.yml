@@ -1,0 +1,23 @@
+services:
+  cpp:
+    profiles: [parent]
+    container_name: cpp-container
+    build:
+      context: .
+    volumes:
+      - .:/app
+    entrypoint: /bin/bash
+    stdin_open: true
+    tty: true
+  cpp-dev:
+    profiles: [dev]
+    extends: cpp
+    build:
+      dockerfile: docker/Dockerfile.dev
+    security_opt:
+      - seccomp=unconfined
+  cpp-prod:
+    profiles: [prod]
+    extends: cpp
+    build:
+      dockerfile: docker/Dockerfile.prod

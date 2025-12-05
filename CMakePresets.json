@@ -1,0 +1,64 @@
+{
+	"version": 6,
+	"cmakeMinimumRequired": {
+		"major": 3,
+		"minor": 24,
+		"patch": 0
+	},
+	"configurePresets": [
+		{
+			"name": "config-default",
+			"generator": "Unix Makefiles",
+			"binaryDir": "${sourceDir}/build",
+			"cacheVariables": {
+				"CMAKE_C_COMPILER": "gcc",
+				"CMAKE_CXX_COMPILER": "g++"
+			}
+		},
+		{
+			"name": "config-debug",
+			"inherits": "config-default",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Debug"
+			}
+		}
+	],
+	"buildPresets": [
+		{
+			"name": "build-default",
+			"configurePreset": "config-default"
+		},
+		{
+			"name": "build-debug",
+			"configurePreset": "config-debug"
+		}
+	],
+	"workflowPresets": [
+		{
+			"name": "main",
+			"steps": [
+				{
+					"type": "configure",
+					"name": "config-default"
+				},
+				{
+					"type": "build",
+					"name": "build-default"
+				}
+			]
+		},
+		{
+			"name": "debug",
+			"steps": [
+				{
+					"type": "configure",
+					"name": "config-debug"
+				},
+				{
+					"type": "build",
+					"name": "build-debug"
+				}
+			]
+		}
+	]
+}

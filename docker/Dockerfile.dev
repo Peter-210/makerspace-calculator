@@ -1,0 +1,18 @@
+FROM ubuntu:noble-20251013
+
+RUN apt-get update && apt-get install -y \
+	g++ \
+	git \
+	cmake
+
+RUN apt-get install -y \
+	gdb \
+	valgrind \
+	clang-tidy
+
+# Install perf
+RUN apt-get install -y linux-tools-generic
+RUN rm /usr/bin/perf
+RUN ln -s /usr/lib/linux-tools/6.8.0-88-generic/perf /usr/bin/perf
+
+WORKDIR /app
