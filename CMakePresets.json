@@ -21,6 +21,13 @@
 			"cacheVariables": {
 				"CMAKE_BUILD_TYPE": "Debug"
 			}
+		},
+		{
+			"name": "config-testing",
+			"inherits": "config-debug",
+			"cacheVariables": {
+				"ENABLE_TESTS": "ON"
+			}
 		}
 	],
 	"buildPresets": [
@@ -31,6 +38,10 @@
 		{
 			"name": "build-debug",
 			"configurePreset": "config-debug"
+		},
+		{
+			"name": "build-testing",
+			"configurePreset": "config-testing"
 		}
 	],
 	"workflowPresets": [
@@ -57,6 +68,19 @@
 				{
 					"type": "build",
 					"name": "build-debug"
+				}
+			]
+		},
+		{
+			"name": "testing",
+			"steps": [
+				{
+					"type": "configure",
+					"name": "config-testing"
+				},
+				{
+					"type": "build",
+					"name": "build-testing"
 				}
 			]
 		}

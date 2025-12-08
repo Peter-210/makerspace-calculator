@@ -10,6 +10,7 @@ Run and Manage CMake Build
 Options:
 	-h, --help    			  Show this help message and exit
 	-d, --debug						Build project to run in debug mode
+	-t, --test						Build project to run in test mode. May need to clean (-c) before use
 	-c, --clean						Remove build files
 	-l, --lib-clean				Remove lib files (eg. googletest)
 
@@ -34,6 +35,18 @@ while test $# -gt 0; do
 
 			echo "Running cmake --workflow --preset debug"
 			cmake --workflow --preset debug
+			;;
+
+		-t|--test)
+			shift
+
+			if test $# -gt 0; then
+				echo "--test cannot have more than one flag after it"
+				exit 1
+      fi
+
+			echo "Running cmake --workflow --preset testing"
+			cmake --workflow --preset testing
 			;;
 
 		-c|--clean)

@@ -1,8 +1,7 @@
 # C++ Template
 
 ## TODO
-- Modify script/make.sh to run gtest with -t flag
-  - Must run test first then src. Else clean -c before running -t
+- Create an optimized prod method for docker and make scripts (eg O2 optimizations)
 
 ## Mobile (Android) IDE
 - Download the app: `CxStudio`
@@ -10,15 +9,15 @@
 - Open the file `src/main.cpp`
 - Run the program
 
-## Build and Run
+## Build and Run in Debug Mode
 1. Run the Docker Container
-- If on Windows, make sure to launch `Docker Desktop` first
+- If on Windows, make sure to launch `Docker Desktop` first and use `WSL`
 
 ```
-./script/docker.sh -p
+./script/docker.sh -d
 ```
 
-2. Run the cmake workflow to build
+2. Run the cmake workflow in debug mode to build
 
 ```
 ./script/make.sh -d
@@ -30,22 +29,16 @@
 ./build/src/main.exe
 ```
 
-## Build and Run with GTest
-1. Enable GTest within `CMakeLists.txt`
+## Running with GTest
+- Steps are similar to the `Build and Run in Debug Mode` instructions
+
+- Run the cmake workflow in test mode
 
 ```
-// Replace the following line:
-option(ENABLE_TESTS "Enable GoogleTest For Testing" OFF)
-
-// With the provided line below:
-option(ENABLE_TESTS "Enable GoogleTest For Testing" ON)
+./script/make.sh -t
 ```
 
-2. Follow the `Build and Run` steps 1 and 2
-    - Run Docker Container
-    - Run CMake Workflow
-
-3. Run the test executable
+- Run test executable
 
 ```
 ./build/test/main-test.exe
@@ -54,6 +47,9 @@ option(ENABLE_TESTS "Enable GoogleTest For Testing" ON)
 ## Help Commands
 - The `-h` or `--help` flag can be used on bash files within `scripts` directory
 
+```
+./script/docker.bat -h
+```
 ```
 ./script/make.bat -h
 ```
