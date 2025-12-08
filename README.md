@@ -1,5 +1,10 @@
 # C++ Template
 
+## TODO
+- Create a linker that places everything in src into one file
+- Modify script/make.sh to run gtest with -t flag
+  - Must run test first then src. Else clean -c before running -t
+
 ## Build and Run
 1. Run the Docker Container
 - If on Windows, make sure to launch `Docker Desktop` first
