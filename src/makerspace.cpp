@@ -1,28 +1,32 @@
 #include <iostream>
 #include <cmath>
 #include <iomanip>
+#include <limits>
+#include <istream>
 #include "makerspace.h"
 
 namespace makerspace {
 	/*
 	 * @brief Check if input values as of type int.
 	 *
+	 * @param in Takes the provided istream (std::cin)
+	 *
 	 * @returns int Returns a positive or zero integer when valid. Else returns -1.
 	 */
-	int inputInt() {
+	int inputInt(std::istream& in) {
 		int num = 0;
-		std::cin >> num;
+		in >> num;
 
-		auto clearInput = []() -> void {
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		auto clearInput = [&](std::istream& s) -> void {
+			s.clear();
+			s.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		};
 
-		if (std::cin.fail()) {
-			clearInput();
+		if (in.fail()) {
+			clearInput(in);
 			return -1;
-		} else if (std::cin.peek() != '\n' && std::cin.peek() != EOF) {
-			clearInput();
+		} else if (in.peek() != '\n' && in.peek() != EOF) {
+			clearInput(in);
 			return -1;
 		}
 
@@ -143,10 +147,10 @@ namespace makerspace {
 	 */
 	void getPrice() {
 		std::cout << "Input Hours:\n";
-		int hours = inputInt();
+		int hours = inputInt(std::cin);
 
 		std::cout << "Input Minutes:\n";
-		int minutes = inputInt();
+		int minutes = inputInt(std::cin);
 
 		if (inputError(hours, minutes)) {
 			std::cout << "ERROR - Invalid time value\n";
