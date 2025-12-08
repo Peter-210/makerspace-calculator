@@ -1,7 +1,6 @@
 # C++ Template
 
 ## TODO
-- Create an interactive terminal to input hours and minutes via the terminal
 - Modify script/make.sh to run gtest with -t flag
   - Must run test first then src. Else clean -c before running -t
 

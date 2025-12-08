@@ -5,7 +5,32 @@
 
 namespace makerspace {
 	/*
-	 * @brief Check if input values for time are acceptable.
+	 * @brief Check if input values as of type int.
+	 *
+	 * @returns int Returns a positive or zero integer when valid. Else returns -1.
+	 */
+	int inputInt() {
+		int num = 0;
+		std::cin >> num;
+
+		auto clearInput = []() -> void {
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		};
+
+		if (std::cin.fail()) {
+			clearInput();
+			return -1;
+		} else if (std::cin.peek() != '\n' && std::cin.peek() != EOF) {
+			clearInput();
+			return -1;
+		}
+
+		return num;
+	}
+
+	/*
+	 * @brief Check if input values are acceptable as a format of time.
 	 *
 	 * @param hours Total hours to print (exclude minutes).
 	 * @param minutes Total minutes to print (exclude hours).
@@ -109,17 +134,33 @@ namespace makerspace {
 	 * @param minutes Total minutes to print (exclude hours)
 	 */
 	void printPrice(const int& hours, const int& minutes) {
+		std::cout << "Time: " << hours << "h " << minutes << "m\n";
+		std::cout << "Price: $" << std::fixed << std::setprecision(2) << calculatePrice(hours, minutes) << '\n';
+	}
+
+	/*
+	 * @brief Run script to get the price of 3D print based on time
+	 */
+	void getPrice() {
+		std::cout << "Input Hours:\n";
+		int hours = inputInt();
+
+		std::cout << "Input Minutes:\n";
+		int minutes = inputInt();
+
 		if (inputError(hours, minutes)) {
 			std::cout << "ERROR - Invalid time value\n";
-			std::cout << "Time: " << hours << "h " << minutes << "m\n";
+			std::cout << "--------------------------\n";
 			return;
 		}
+
+		std::cout << '\n';
 
 		if (exceedTime(hours)) {
 			std::cout << "WARNING - Time exceeds max value\n";
 		}
 
-		std::cout << "Time: " << hours << "h " << minutes << "m\n";
-		std::cout << "Price: $" << std::fixed << std::setprecision(2) << calculatePrice(hours, minutes) << '\n';
+		printPrice(hours, minutes);
+		std::cout << "--------------------------\n";
 	}
 }
