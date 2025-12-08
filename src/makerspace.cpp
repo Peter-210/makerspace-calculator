@@ -4,6 +4,21 @@
 
 #include "makerspace.h"
 
+// namespace makerspace {
+// 	bool inputError(const int& hours, const int& minutes);
+// 	bool exceedTime(const int& hours);
+// 	double calculatePrice(const int& hours, const int& minutes);
+// 	void printPrice(const int& hours, const int& minutes);
+// }
+//
+// int main() {
+// 	int myHours = 0;
+// 	int myMinutes = 0;
+//
+// 	makerspace::printPrice(myHours, myMinutes);
+// 	return 0;
+// }
+
 namespace makerspace {
 	/*
 	 * @brief Check if input values for time are acceptable.
