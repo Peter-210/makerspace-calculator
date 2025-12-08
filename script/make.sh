@@ -39,6 +39,8 @@ while test $# -gt 0; do
 		-c|--clean)
 			shift
 
+			echo "Start cleaning..."
+
 			if [ -d "./build/" ]; then
 				echo "Removing ./build/ folder"
 				rm -rf ./build/
@@ -52,6 +54,8 @@ while test $# -gt 0; do
 
 		-l|--lib-clean)
 			shift
+
+			echo "Start cleaning libraries..."
 
 			if [ -d "./lib/" ]; then
 				echo "Removing ./lib/ folder"

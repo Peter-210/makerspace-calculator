@@ -30,8 +30,10 @@ TEST(CalculatePrice, OneHourAnyMinutes) {
 	ASSERT_EQ(makerspace::calculatePrice(1, 15), 2.5);
 	ASSERT_EQ(makerspace::calculatePrice(1, 22), 2.5);
 	ASSERT_EQ(makerspace::calculatePrice(1, 23), 3.0);
+	ASSERT_EQ(makerspace::calculatePrice(1, 30), 3.0);
 	ASSERT_EQ(makerspace::calculatePrice(1, 37), 3.0);
 	ASSERT_EQ(makerspace::calculatePrice(1, 38), 3.5);
+	ASSERT_EQ(makerspace::calculatePrice(1, 45), 3.5);
 	ASSERT_EQ(makerspace::calculatePrice(1, 52), 3.5);
 	ASSERT_EQ(makerspace::calculatePrice(1, 53), 4.0);
 	ASSERT_EQ(makerspace::calculatePrice(1, 59), 4.0);
@@ -44,8 +46,10 @@ TEST(CalculatePrice, MaxHoursAnyMinutes) {
 	ASSERT_EQ(makerspace::calculatePrice(3, 15), 6.5);
 	ASSERT_EQ(makerspace::calculatePrice(3, 22), 6.5);
 	ASSERT_EQ(makerspace::calculatePrice(3, 23), 7.0);
+	ASSERT_EQ(makerspace::calculatePrice(3, 30), 7.0);
 	ASSERT_EQ(makerspace::calculatePrice(3, 37), 7.0);
 	ASSERT_EQ(makerspace::calculatePrice(3, 38), 7.5);
+	ASSERT_EQ(makerspace::calculatePrice(3, 45), 7.5);
 	ASSERT_EQ(makerspace::calculatePrice(3, 52), 7.5);
 	ASSERT_EQ(makerspace::calculatePrice(3, 53), 8.0);
 	ASSERT_EQ(makerspace::calculatePrice(3, 59), 8.0);

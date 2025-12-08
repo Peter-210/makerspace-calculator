@@ -1,9 +1,14 @@
 # C++ Template
 
 ## TODO
-- Create a linker that places everything in src into one file
 - Modify script/make.sh to run gtest with -t flag
   - Must run test first then src. Else clean -c before running -t
+
+## Mobile (Android) IDE
+- Download the app: `CxStudio`
+- Open this repo as a `Project`
+- Open the file `src/main.cpp`
+- Run the program
 
 ## Build and Run
 1. Run the Docker Container
