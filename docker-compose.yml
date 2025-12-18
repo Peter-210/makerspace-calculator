@@ -1,5 +1,5 @@
 services:
-  cpp:
+  makerspace-calculator:
     profiles: [parent]
     container_name: makerspace-calculator
     build:
@@ -9,15 +9,15 @@ services:
     entrypoint: /bin/bash
     stdin_open: true
     tty: true
-  cpp-dev:
+  prod:
+    profiles: [prod]
+    extends: makerspace-calculator
+    build:
+      dockerfile: docker/Dockerfile.prod
+  dev:
     profiles: [dev]
-    extends: cpp
+    extends: makerspace-calculator
     build:
       dockerfile: docker/Dockerfile.dev
     security_opt:
       - seccomp=unconfined
-  cpp-prod:
-    profiles: [prod]
-    extends: cpp
-    build:
-      dockerfile: docker/Dockerfile.prod

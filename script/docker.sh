@@ -1,6 +1,8 @@
 #!/bin/bash
 
 CONTAINER_NAME=makerspace-calculator
+IMAGE_PROD_NAME=makerspace-calculator-prod
+IMAGE_DEV_NAME=makerspace-calculator-dev
 
 print_help() {
 	cat <<EOF
@@ -12,7 +14,8 @@ Options:
 	-h, --help    			  Show this help message and exit
 	-d, --dev							Create container and image for developement (uses extra dev tools)
 	-p, --prod						Create container and image for production (minimal dependencies)
-	-c, --clean						Purge docker container and image
+	-c, --clean						Purge docker container
+	-i, --image-clean			Purge docker image (prod and dev)
 
 EOF
 }
@@ -27,6 +30,11 @@ if [[ $# -eq 0 ]]; then
     exit 1
 fi
 
+CURR_FILE_PATH="$0"
+CURR_DIR_PATH="${CURR_FILE_PATH%/*}"
+cd $CURR_DIR_PATH
+cd ../
+
 while test $# -gt 0; do
 	case "$1" in
 		-d|--dev)
@@ -37,7 +45,7 @@ while test $# -gt 0; do
 				exit 1
       fi
 
-			echo "Starting docker in profile dev"
+			echo "Starting docker in profile dev..."
 			make_container "dev"
 			;;
 
@@ -49,18 +57,26 @@ while test $# -gt 0; do
 				exit 1
       fi
 
-			echo "Starting docker in profile prod"
+			echo "Starting docker in profile prod..."
 			make_container "prod"
 			;;
 
 		-c|--clean)
 			shift
 
-			echo "Cleaning container and image"
+			echo "Cleaning container..."
 
-			docker stop $(docker ps -aq)
-			docker rm $(docker ps -aq)
-			docker rmi -f $(docker images -q)
+			docker stop $CONTAINER_NAME
+			docker rm $CONTAINER_NAME
+			;;
+			
+		-i|--image-clean)
+			shift
+
+			echo "Cleaning images..."
+
+			docker rmi $IMAGE_PROD_NAME
+			docker rmi $IMAGE_DEV_NAME
 			;;
 
 		-h|--help)

@@ -19,13 +19,14 @@
 			"name": "config-debug",
 			"inherits": "config-default",
 			"cacheVariables": {
-				"CMAKE_BUILD_TYPE": "Debug"
+				"ENABLE_DEBUG": "ON"
 			}
 		},
 		{
 			"name": "config-testing",
 			"inherits": "config-debug",
 			"cacheVariables": {
+				"ENABLE_DEBUG": "ON",
 				"ENABLE_TESTS": "ON"
 			}
 		}
