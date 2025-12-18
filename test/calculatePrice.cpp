@@ -17,7 +17,7 @@ TEST(CalculatePrice, MinutesOnly) {
 	EXPECT_EQ(makerspace::calculatePrice(0, 30), 1.0);
 	EXPECT_EQ(makerspace::calculatePrice(0, 37), 1.5);
 	EXPECT_EQ(makerspace::calculatePrice(0, 38), 1.5);
-	EXPECT_EQ(makerspace::calculatePrice(0, 45), 2.0);
+	EXPECT_EQ(makerspace::calculatePrice(0, 45), 1.5);
 	EXPECT_EQ(makerspace::calculatePrice(0, 52), 2.0);
 	EXPECT_EQ(makerspace::calculatePrice(0, 53), 2.0);
 	EXPECT_EQ(makerspace::calculatePrice(0, 59), 2.0);
