@@ -1,7 +1,8 @@
 #include "gtest/gtest.h"
 #include "makerspace.h"
 
-TEST(CalculatePrice, HoursOnly) {
+TEST(CalculatePrice, HoursOnly)
+{
 	EXPECT_EQ(makerspace::calculatePrice(1, 0), 2.0);
 	EXPECT_EQ(makerspace::calculatePrice(2, 0), 4.0);
 	EXPECT_EQ(makerspace::calculatePrice(3, 0), 6.0);
@@ -9,7 +10,8 @@ TEST(CalculatePrice, HoursOnly) {
 	EXPECT_EQ(makerspace::calculatePrice(5, 0), 10.0);
 }
 
-TEST(CalculatePrice, MinutesOnly) {
+TEST(CalculatePrice, MinutesOnly)
+{
 	EXPECT_EQ(makerspace::calculatePrice(0, 1), 0.5);
 	EXPECT_EQ(makerspace::calculatePrice(0, 15), 0.5);
 	EXPECT_EQ(makerspace::calculatePrice(0, 22), 1.0);
@@ -23,7 +25,8 @@ TEST(CalculatePrice, MinutesOnly) {
 	EXPECT_EQ(makerspace::calculatePrice(0, 59), 2.0);
 }
 
-TEST(CalculatePrice, OneHourAnyMinutes) {
+TEST(CalculatePrice, OneHourAnyMinutes)
+{
 	EXPECT_EQ(makerspace::calculatePrice(1, 1), 2.5);
 	EXPECT_EQ(makerspace::calculatePrice(1, 7), 2.5);
 	EXPECT_EQ(makerspace::calculatePrice(1, 8), 2.5);
@@ -39,7 +42,8 @@ TEST(CalculatePrice, OneHourAnyMinutes) {
 	EXPECT_EQ(makerspace::calculatePrice(1, 59), 4.0);
 }
 
-TEST(CalculatePrice, MaxHoursAnyMinutes) {
+TEST(CalculatePrice, MaxHoursAnyMinutes)
+{
 	EXPECT_EQ(makerspace::calculatePrice(3, 1), 6.5);
 	EXPECT_EQ(makerspace::calculatePrice(3, 7), 6.5);
 	EXPECT_EQ(makerspace::calculatePrice(3, 8), 6.5);

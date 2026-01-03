@@ -5,7 +5,8 @@
 #include <istream>
 #include "makerspace.h"
 
-namespace makerspace {
+namespace makerspace
+{
 	/*
 	 * @brief Check if input values as of type int.
 	 *
@@ -13,19 +14,27 @@ namespace makerspace {
 	 *
 	 * @returns int Returns a positive or zero integer when valid. Else returns -1.
 	 */
-	int inputInt(std::istream& in) {
-		int num = 0;
+	int inputInt(std::istream& in)
+	{
+		int num {};
 		in >> num;
 
-		auto clearInput = [&](std::istream& s) -> void {
-			s.clear();
-			s.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		auto clearInput
+		{
+			[&](std::istream& s) -> void 
+			{
+				s.clear();
+				s.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			}
 		};
 
-		if (in.fail()) {
+		if (in.fail()) 
+		{
 			clearInput(in);
 			return -1;
-		} else if (in.peek() != '\n' && in.peek() != EOF) {
+		} 
+		else if (in.peek() != '\n' && in.peek() != EOF) 
+		{
 			clearInput(in);
 			return -1;
 		}
@@ -49,16 +58,20 @@ namespace makerspace {
 	 * inputError(1, 60); 	// return true
 	 * inputError(0, 0); 		// return true
 	 */
-	bool inputError(const int& hours, const int& minutes) {
-		if (hours == 0 && minutes == 0) {
+	bool inputError(const int& hours, const int& minutes)
+	{
+		if (hours == 0 && minutes == 0)
+		{
 			return true;
 		}
 
-		if (hours < 0) {
+		if (hours < 0)
+		{
 			return true;
 		}
 
-		if (minutes < 0 || minutes >= 60) {
+		if (minutes < 0 || minutes >= 60)
+		{
 			return true;
 		}
 
@@ -79,8 +92,10 @@ namespace makerspace {
 	 * exceedTime(4); 	// return true
 	 * exceedTime(5); 	// return true
 	 */
-	bool exceedTime(const int& hours) {
-		if (hours > 3) {
+	bool exceedTime(const int& hours)
+	{
+		if (hours > 3)
+		{
 			return true;
 		}
 
@@ -103,13 +118,14 @@ namespace makerspace {
 	 * calculatePrice(2, 40);		// return 5.5
 	 * calculatePrice(0, 25);		// return 1.0
 	 */
-	double calculatePrice(const int& hours, const int& minutes) {
-		constexpr double HOUR_PRICE = 2.00;
-		constexpr double MINUTE_PRICE = 0.50;
-		constexpr double MINUTE_RATE = 15;
+	double calculatePrice(const int& hours, const int& minutes)
+	{
+		constexpr double HOUR_PRICE { 2.00 };
+		constexpr double MINUTE_PRICE { 0.50 };
+		constexpr double MINUTE_RATE { 15 };
 
-		double currHourPrice = hours * HOUR_PRICE;
-		double currMinPrice = ceil(minutes / MINUTE_RATE) * MINUTE_PRICE;
+		double currHourPrice { hours * HOUR_PRICE };
+		double currMinPrice { ceil(minutes / MINUTE_RATE) * MINUTE_PRICE };
 
 		return currHourPrice + currMinPrice;
 	}
@@ -122,7 +138,8 @@ namespace makerspace {
 	 * @param hours Total hours to print (exclude minutes)
 	 * @param minutes Total minutes to print (exclude hours)
 	 */
-	void printPrice(const int& hours, const int& minutes) {
+	void printPrice(const int& hours, const int& minutes)
+	{
 		std::cout << "Time: " << hours << "h " << minutes << "m\n";
 		std::cout << "Price: $" << std::fixed << std::setprecision(2) << calculatePrice(hours, minutes) << '\n';
 	}
@@ -130,14 +147,16 @@ namespace makerspace {
 	/*
 	 * @brief Run script to get the price of 3D print based on time
 	 */
-	void getPrice() {
+	void getPrice()
+	{
 		std::cout << "Input Hours:\n";
-		int hours = inputInt(std::cin);
+		int hours { inputInt(std::cin) };
 
 		std::cout << "Input Minutes:\n";
-		int minutes = inputInt(std::cin);
+		int minutes { inputInt(std::cin) };
 
-		if (inputError(hours, minutes)) {
+		if (inputError(hours, minutes))
+		{
 			std::cout << "ERROR - Invalid time value\n";
 			std::cout << "--------------------------\n";
 			return;
@@ -145,7 +164,8 @@ namespace makerspace {
 
 		std::cout << '\n';
 
-		if (exceedTime(hours)) {
+		if (exceedTime(hours))
+		{
 			std::cout << "WARNING - Time exceeds max value\n";
 		}
 

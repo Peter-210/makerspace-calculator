@@ -2,7 +2,8 @@
 
 #pragma once
 
-namespace makerspace {
+namespace makerspace
+{
 	int inputInt(std::istream& in);
 	bool inputError(const int& hours, const int& minutes);
 	bool exceedTime(const int& hours);

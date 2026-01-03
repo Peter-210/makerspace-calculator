@@ -1,7 +1,8 @@
 #include "gtest/gtest.h"
 #include "makerspace.h"
 
-TEST(ExceedTime, HoursOnly) {
+TEST(ExceedTime, HoursOnly)
+{
 	EXPECT_EQ(makerspace::exceedTime(0), false);
 	EXPECT_EQ(makerspace::exceedTime(1), false);
 	EXPECT_EQ(makerspace::exceedTime(2), false);

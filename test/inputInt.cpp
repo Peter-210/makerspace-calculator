@@ -2,7 +2,8 @@
 #include <sstream>
 #include "makerspace.h"
 
-TEST(InputInt, ValidInputs) {
+TEST(InputInt, ValidInputs)
+{
 	{
 		std::istringstream input("0\n");
 		EXPECT_EQ(makerspace::inputInt(input), 0);
@@ -25,7 +26,8 @@ TEST(InputInt, ValidInputs) {
 	}
 }
 
-TEST(InputInt, InvalidInputs) {
+TEST(InputInt, InvalidInputs)
+{
 	{
 		std::istringstream input("a\n");
 		EXPECT_EQ(makerspace::inputInt(input), -1);
