@@ -1,0 +1,158 @@
+\chapter{C++ Template}
+\hypertarget{md_README}{}\label{md_README}\index{C++ Template@{C++ Template}}
+\label{md_README_autotoc_md0}%
+\Hypertarget{md_README_autotoc_md0}%
+ \hypertarget{md_README_autotoc_md1}{}\doxysection{\texorpdfstring{Setup}{Setup}}\label{md_README_autotoc_md1}
+
+\begin{DoxyEnumerate}
+\item Make sure to have {\ttfamily Docker} installed
+\begin{DoxyItemize}
+\item If on Windows, use {\ttfamily WSL} with {\ttfamily Docker Desktop} (Make sure to use {\ttfamily Linux Containers})
+\end{DoxyItemize}
+\item Give permission to execute helper script files\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{chmod\ u+x\ script/*}
+
+\end{DoxyCode}
+
+\item Make sure your project directory is formatted as such\+: {\ttfamily my-\/project-\/dir}
+\begin{DoxyItemize}
+\item Then run {\ttfamily script/setup.\+sh}. This will set project directory to be the name used in docker
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{md_README_autotoc_md2}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{md_README_autotoc_md2}
+
+\begin{DoxyItemize}
+\item This project contains scripts that can run in different modes\+:
+\begin{DoxyItemize}
+\item {\ttfamily -\/p} (prod) -\/ Minimal installed tools on docker and optimized code from the compiler
+\item {\ttfamily -\/d} (dev/debug) -\/ All tools installed for debugging the project (eg. GDB)
+\item {\ttfamily -\/t} (test) -\/ Used for unit testing with GTest
+\end{DoxyItemize}
+\item To learn more about these modes, use the {\ttfamily -\/h} or {\ttfamily -\/-\/help} flag for the following scripts\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./scripts/docker.sh\ -\/h}
+
+\end{DoxyCode}
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./scripts/make.sh\ -\/h}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md3}{}\doxysection{\texorpdfstring{Build and Run}{Build and Run}}\label{md_README_autotoc_md3}
+
+\begin{DoxyItemize}
+\item Refer to the Usage section of this guide for details on {\ttfamily modes}
+\item All modes follow a similar step with slight differences
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md4}{}\doxysubsection{\texorpdfstring{Build and Run (\+Prod Mode)}{Build and Run (Prod Mode)}}\label{md_README_autotoc_md4}
+
+\begin{DoxyEnumerate}
+\item Run the Docker Container 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./script/docker.sh\ -\/p}
+
+\end{DoxyCode}
+
+\item Run the cmake workflow to build 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./script/make.sh\ -\/p}
+
+\end{DoxyCode}
+
+\item Run the executable 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./build/src/main}
+
+\end{DoxyCode}
+
+\end{DoxyEnumerate}\hypertarget{md_README_autotoc_md5}{}\doxysubsection{\texorpdfstring{Build and Run (\+Dev/\+Debug Mode)}{Build and Run (Dev/Debug Mode)}}\label{md_README_autotoc_md5}
+
+\begin{DoxyEnumerate}
+\item Run the Docker Container 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./script/docker.sh\ -\/d}
+
+\end{DoxyCode}
+
+\item Run the cmake workflow to build 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./script/make.sh\ -\/d}
+
+\end{DoxyCode}
+
+\item Run the executable 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{gdb\ ./build/src/main}
+
+\end{DoxyCode}
+
+\end{DoxyEnumerate}\hypertarget{md_README_autotoc_md6}{}\doxysubsection{\texorpdfstring{Build and Run (\+Test Mode)}{Build and Run (Test Mode)}}\label{md_README_autotoc_md6}
+
+\begin{DoxyEnumerate}
+\item Run the Docker Container 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./script/docker.sh\ -\/d}
+
+\end{DoxyCode}
+
+\item Run the cmake workflow to build 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./script/make.sh\ -\/t}
+
+\end{DoxyCode}
+
+\item Run the executable 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./build/test/main-\/test}
+
+\end{DoxyCode}
+
+\end{DoxyEnumerate}\hypertarget{md_README_autotoc_md7}{}\doxysection{\texorpdfstring{Troubleshooting}{Troubleshooting}}\label{md_README_autotoc_md7}
+
+\begin{DoxyItemize}
+\item For any missing dependencies in docker container, run the following to clean container then re-\/run the script with the proper flag mode (-\/p/d)\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./script/docker.sh\ -\/c}
+
+\end{DoxyCode}
+
+\item For any conflicts with docker container, run the following to clean container and image then re-\/run the script with the proper flag mode (-\/p/d)\+:
+\begin{DoxyItemize}
+\item The order is important. Clean container first, then image 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./script/docker.sh\ -\/c}
+\DoxyCodeLine{./script/docker.sh\ -\/i}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}
+\item For CMake builds that are not updating to code changes, run the following to clean build then re-\/run the script with the proper flag mode (-\/p/d/t)\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./script/make.sh\ -\/c}
+
+\end{DoxyCode}
+
+\item For GTest lib files being corrupted, run the following to clean lib files then re-\/run the script with the proper flag mode (-\/t)\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./script/make.sh\ -\/l}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md8}{}\doxysection{\texorpdfstring{TODO}{TODO}}\label{md_README_autotoc_md8}
+\hypertarget{md_README_autotoc_md9}{}\doxysubsection{\texorpdfstring{Working On}{Working On}}\label{md_README_autotoc_md9}
+
+\begin{DoxyItemize}
+\item GCC Flag {\ttfamily -\/Weffc++} throws errors for GTest
+\item Create a setup script for stuff like container naming and README project name
+\item One for project setup (README details) and the other for general setup (docker container and image names)
+\begin{DoxyItemize}
+\item Automate filling in project name and details for README
+\item Create custom container and image names
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md10}{}\doxysubsection{\texorpdfstring{Ignored}{Ignored}}\label{md_README_autotoc_md10}
+
+\begin{DoxyItemize}
+\item Add volume (personal storage) to docker containers
+\item Use the container name change to create a prod and debug seperate containers
+\item Create an auto build for prod docker 
+\end{DoxyItemize}

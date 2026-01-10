@@ -16,4 +16,6 @@ sed -i "s/extends:.*/extends: ${PROJECT_NAME}/" "docker-compose.yml"
 sed -i "s/\(IMAGE_PROD_NAME=\).*/\1${PROJECT_NAME}-prod/g" "script/docker.sh"
 sed -i "s/\(IMAGE_DEV_NAME=\).*/\1${PROJECT_NAME}-dev/g" "script/docker.sh"
 
+sed -i "s/\(PROJECT_NAME           = \).*/\1\"${PROJECT_NAME}\"/g" "Doxyfile"
+
 echo "Setup complete"

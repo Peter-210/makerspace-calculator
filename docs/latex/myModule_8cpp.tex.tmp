@@ -1,0 +1,54 @@
+\doxysection{src/my\+Module.cpp File Reference}
+\hypertarget{myModule_8cpp}{}\label{myModule_8cpp}\index{src/myModule.cpp@{src/myModule.cpp}}
+
+
+This file handles the \doxylink{myModule_8cpp_ad0902766c3251c06f4b32a6696796f29}{hello()} function.  
+
+
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include "{}header.\+h"{}}\newline
+Include dependency graph for my\+Module.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{myModule_8cpp_ad0902766c3251c06f4b32a6696796f29}{hello}} ()
+\begin{DoxyCompactList}\small\item\em Returns the string "{}\+Hello World"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file handles the \doxylink{myModule_8cpp_ad0902766c3251c06f4b32a6696796f29}{hello()} function. 
+
+\begin{DoxyAuthor}{Author}
+Peter 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2025-\/01-\/01
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{myModule_8cpp_ad0902766c3251c06f4b32a6696796f29}\label{myModule_8cpp_ad0902766c3251c06f4b32a6696796f29} 
+\index{myModule.cpp@{myModule.cpp}!hello@{hello}}
+\index{hello@{hello}!myModule.cpp@{myModule.cpp}}
+\doxysubsubsection{\texorpdfstring{hello()}{hello()}}
+{\footnotesize\ttfamily std\+::string hello (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the string "{}\+Hello World"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Arg} & There is no argument at the moment but here\textquotesingle{}s a description.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The string "{}\+Hello World"{}. 
+\end{DoxyReturn}

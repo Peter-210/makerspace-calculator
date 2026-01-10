@@ -1,3 +1,9 @@
+/**
+ * @file makerspace.cpp
+ * @brief This file handles the calculations and ui
+ * for 3D printing costs.
+ */
+
 #include <iostream>
 #include <cmath>
 #include <iomanip>
