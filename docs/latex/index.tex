@@ -1,8 +1,22 @@
-\chapter{C++ Template}
-\hypertarget{index}{}\label{index}\index{C++ Template@{C++ Template}}
+\chapter{Makerspace Calculator}
+\hypertarget{index}{}\label{index}\index{Makerspace Calculator@{Makerspace Calculator}}
 \label{index_md_README}%
 \Hypertarget{index_md_README}%
- \hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Setup}{Setup}}\label{index_autotoc_md1}
+
+\begin{DoxyItemize}
+\item A program that calculates the proper 3D print cost based on print time
+\begin{DoxyItemize}
+\item 15 minutes = \$0.50
+\item 1 hour = \$2.00
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Mobile Setup -\/ (\+Android) IDE}{Mobile Setup - (Android) IDE}}\label{index_autotoc_md1}
+
+\begin{DoxyItemize}
+\item Download the app\+: {\ttfamily Cx\+Studio}
+\item Open this repo as a {\ttfamily Project}
+\item Open the file {\ttfamily src/main.\+cpp}
+\item Run the program
+\end{DoxyItemize}\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{PC Setup}{PC Setup}}\label{index_autotoc_md2}
 
 \begin{DoxyEnumerate}
 \item Make sure to have {\ttfamily Docker} installed
@@ -19,7 +33,7 @@
 \begin{DoxyItemize}
 \item Then run {\ttfamily script/setup.\+sh}. This will set project directory to be the name used in docker
 \end{DoxyItemize}
-\end{DoxyEnumerate}\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{index_autotoc_md2}
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{index_autotoc_md3}
 
 \begin{DoxyItemize}
 \item This project contains scripts that can run in different modes\+:
@@ -39,12 +53,12 @@
 
 \end{DoxyCode}
 
-\end{DoxyItemize}\hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{Build and Run}{Build and Run}}\label{index_autotoc_md3}
+\end{DoxyItemize}\hypertarget{index_autotoc_md4}{}\doxysection{\texorpdfstring{Build and Run}{Build and Run}}\label{index_autotoc_md4}
 
 \begin{DoxyItemize}
 \item Refer to the Usage section of this guide for details on {\ttfamily modes}
 \item All modes follow a similar step with slight differences
-\end{DoxyItemize}\hypertarget{index_autotoc_md4}{}\doxysubsection{\texorpdfstring{Build and Run (\+Prod Mode)}{Build and Run (Prod Mode)}}\label{index_autotoc_md4}
+\end{DoxyItemize}\hypertarget{index_autotoc_md5}{}\doxysubsection{\texorpdfstring{Build and Run (\+Prod Mode)}{Build and Run (Prod Mode)}}\label{index_autotoc_md5}
 
 \begin{DoxyEnumerate}
 \item Run the Docker Container 
@@ -65,7 +79,7 @@
 
 \end{DoxyCode}
 
-\end{DoxyEnumerate}\hypertarget{index_autotoc_md5}{}\doxysubsection{\texorpdfstring{Build and Run (\+Dev/\+Debug Mode)}{Build and Run (Dev/Debug Mode)}}\label{index_autotoc_md5}
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md6}{}\doxysubsection{\texorpdfstring{Build and Run (\+Dev/\+Debug Mode)}{Build and Run (Dev/Debug Mode)}}\label{index_autotoc_md6}
 
 \begin{DoxyEnumerate}
 \item Run the Docker Container 
@@ -86,7 +100,7 @@
 
 \end{DoxyCode}
 
-\end{DoxyEnumerate}\hypertarget{index_autotoc_md6}{}\doxysubsection{\texorpdfstring{Build and Run (\+Test Mode)}{Build and Run (Test Mode)}}\label{index_autotoc_md6}
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md7}{}\doxysubsection{\texorpdfstring{Build and Run (\+Test Mode)}{Build and Run (Test Mode)}}\label{index_autotoc_md7}
 
 \begin{DoxyEnumerate}
 \item Run the Docker Container 
@@ -107,7 +121,7 @@
 
 \end{DoxyCode}
 
-\end{DoxyEnumerate}\hypertarget{index_autotoc_md7}{}\doxysection{\texorpdfstring{Troubleshooting}{Troubleshooting}}\label{index_autotoc_md7}
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md8}{}\doxysection{\texorpdfstring{Troubleshooting}{Troubleshooting}}\label{index_autotoc_md8}
 
 \begin{DoxyItemize}
 \item For any missing dependencies in docker container, run the following to clean container then re-\/run the script with the proper flag mode (-\/p/d)\+: 
@@ -137,22 +151,5 @@
 \DoxyCodeLine{./script/make.sh\ -\/l}
 
 \end{DoxyCode}
-
-\end{DoxyItemize}\hypertarget{index_autotoc_md8}{}\doxysection{\texorpdfstring{TODO}{TODO}}\label{index_autotoc_md8}
-\hypertarget{index_autotoc_md9}{}\doxysubsection{\texorpdfstring{Working On}{Working On}}\label{index_autotoc_md9}
-
-\begin{DoxyItemize}
-\item GCC Flag {\ttfamily -\/Weffc++} throws errors for GTest
-\item Create a setup script for stuff like container naming and README project name
-\item One for project setup (README details) and the other for general setup (docker container and image names)
-\begin{DoxyItemize}
-\item Automate filling in project name and details for README
-\item Create custom container and image names
-\end{DoxyItemize}
-\end{DoxyItemize}\hypertarget{index_autotoc_md10}{}\doxysubsection{\texorpdfstring{Ignored}{Ignored}}\label{index_autotoc_md10}
-
-\begin{DoxyItemize}
-\item Add volume (personal storage) to docker containers
-\item Use the container name change to create a prod and debug seperate containers
-\item Create an auto build for prod docker 
+ 
 \end{DoxyItemize}

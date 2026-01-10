@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>cpp: C++ Template</title>
+<title>makerspace-calculator: Makerspace Calculator</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">cpp
+   <div id="projectname">makerspace-calculator
    </div>
   </td>
  </tr>
@@ -69,12 +69,26 @@ $(function() {
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">C++ Template </div></div>
+  <div class="headertitle"><div class="title">Makerspace Calculator </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a> </p>
+<div class="textblock"><p><a class="anchor" id="md_README"></a></p><ul>
+<li>A program that calculates the proper 3D print cost based on print time<ul>
+<li>15 minutes = $0.50</li>
+<li>1 hour = $2.00</li>
+</ul>
+</li>
+</ul>
 <h1><a class="anchor" id="autotoc_md1"></a>
-Setup</h1>
+Mobile Setup - (Android) IDE</h1>
+<ul>
+<li>Download the app: <code>CxStudio</code></li>
+<li>Open this repo as a <code>Project</code></li>
+<li>Open the file <code>src/main.cpp</code></li>
+<li>Run the program</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md2"></a>
+PC Setup</h1>
 <ol type="1">
 <li>Make sure to have <code>Docker</code> installed<ul>
 <li>If on Windows, use <code>WSL</code> with <code>Docker Desktop</code> (Make sure to use <code>Linux Containers</code>)</li>
@@ -87,7 +101,7 @@ Setup</h1>
 </ul>
 </li>
 </ol>
-<h1><a class="anchor" id="autotoc_md2"></a>
+<h1><a class="anchor" id="autotoc_md3"></a>
 Usage</h1>
 <ul>
 <li>This project contains scripts that can run in different modes:<ul>
@@ -100,13 +114,13 @@ Usage</h1>
 </div><!-- fragment --> <div class="fragment"><div class="line">./scripts/make.sh -h</div>
 </div><!-- fragment --></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md3"></a>
+<h1><a class="anchor" id="autotoc_md4"></a>
 Build and Run</h1>
 <ul>
 <li>Refer to the Usage section of this guide for details on <code>modes</code></li>
 <li>All modes follow a similar step with slight differences</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md5"></a>
 Build and Run (Prod Mode)</h2>
 <ol type="1">
 <li>Run the Docker Container <div class="fragment"><div class="line">./script/docker.sh -p</div>
@@ -116,7 +130,7 @@ Build and Run (Prod Mode)</h2>
 <li>Run the executable <div class="fragment"><div class="line">./build/src/main</div>
 </div><!-- fragment --></li>
 </ol>
-<h2><a class="anchor" id="autotoc_md5"></a>
+<h2><a class="anchor" id="autotoc_md6"></a>
 Build and Run (Dev/Debug Mode)</h2>
 <ol type="1">
 <li>Run the Docker Container <div class="fragment"><div class="line">./script/docker.sh -d</div>
@@ -126,7 +140,7 @@ Build and Run (Dev/Debug Mode)</h2>
 <li>Run the executable <div class="fragment"><div class="line">gdb ./build/src/main</div>
 </div><!-- fragment --></li>
 </ol>
-<h2><a class="anchor" id="autotoc_md6"></a>
+<h2><a class="anchor" id="autotoc_md7"></a>
 Build and Run (Test Mode)</h2>
 <ol type="1">
 <li>Run the Docker Container <div class="fragment"><div class="line">./script/docker.sh -d</div>
@@ -136,7 +150,7 @@ Build and Run (Test Mode)</h2>
 <li>Run the executable <div class="fragment"><div class="line">./build/test/main-test</div>
 </div><!-- fragment --></li>
 </ol>
-<h1><a class="anchor" id="autotoc_md7"></a>
+<h1><a class="anchor" id="autotoc_md8"></a>
 Troubleshooting</h1>
 <ul>
 <li>For any missing dependencies in docker container, run the following to clean container then re-run the script with the proper flag mode (-p/d): <div class="fragment"><div class="line">./script/docker.sh -c</div>
@@ -150,27 +164,7 @@ Troubleshooting</h1>
 <li>For CMake builds that are not updating to code changes, run the following to clean build then re-run the script with the proper flag mode (-p/d/t): <div class="fragment"><div class="line">./script/make.sh -c</div>
 </div><!-- fragment --></li>
 <li>For GTest lib files being corrupted, run the following to clean lib files then re-run the script with the proper flag mode (-t): <div class="fragment"><div class="line">./script/make.sh -l</div>
-</div><!-- fragment --></li>
-</ul>
-<h1><a class="anchor" id="autotoc_md8"></a>
-TODO</h1>
-<h2><a class="anchor" id="autotoc_md9"></a>
-Working On</h2>
-<ul>
-<li>GCC Flag <code>-Weffc++</code> throws errors for GTest</li>
-<li>Create a setup script for stuff like container naming and README project name</li>
-<li>One for project setup (README details) and the other for general setup (docker container and image names)<ul>
-<li>Automate filling in project name and details for README</li>
-<li>Create custom container and image names</li>
-</ul>
-</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md10"></a>
-Ignored</h2>
-<ul>
-<li>Add volume (personal storage) to docker containers</li>
-<li>Use the container name change to create a prod and debug seperate containers</li>
-<li>Create an auto build for prod docker </li>
+</div><!-- fragment --> </li>
 </ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->

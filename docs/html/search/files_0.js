@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mymodule_2ecpp_0',['myModule.cpp',['../myModule_8cpp.html',1,'']]]
+  ['makerspace_2ecpp_0',['makerspace.cpp',['../makerspace_8cpp.html',1,'']]]
 ];

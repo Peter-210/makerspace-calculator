@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['c_20template_0',['C++ Template',['../index.html',1,'']]]
+  ['calculator_0',['Makerspace Calculator',['../index.html',1,'']]]
 ];

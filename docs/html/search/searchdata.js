@@ -1,24 +1,21 @@
 var indexSectionsWithContent =
 {
-  0: "abcdhimoprstuw",
+  0: "abcdimprstu",
   1: "m",
-  2: "h",
-  3: "ct"
+  2: "cm"
 };
 
 var indexSectionNames =
 {
   0: "all",
   1: "files",
-  2: "functions",
-  3: "pages"
+  2: "pages"
 };
 
 var indexSectionLabels =
 {
   0: "All",
   1: "Files",
-  2: "Functions",
-  3: "Pages"
+  2: "Pages"
 };
 
