@@ -2,7 +2,7 @@
 \hypertarget{makerspace_8cpp}{}\label{makerspace_8cpp}\index{src/makerspace.cpp@{src/makerspace.cpp}}
 
 
-This file handles the calculations and ui for 3D printing costs.  
+This file handles the calculations and UI for 3D printing costs.  
 
 
 {\ttfamily \#include $<$iostream$>$}\newline
@@ -19,29 +19,29 @@ Include dependency graph for makerspace.\+cpp\+:
 \includegraphics[width=350pt]{makerspace_8cpp__incl}
 \end{center}
 \end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemakerspace}{makerspace}}
+\begin{DoxyCompactList}\small\item\em Holds the logic for 3D print calculations and UI. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{makerspace_8cpp_abe4feee0d73b7a8e2de47a4f9dacf7a0}\label{makerspace_8cpp_abe4feee0d73b7a8e2de47a4f9dacf7a0} 
-int {\bfseries makerspace\+::input\+Int} (std\+::istream \&in)
-\item 
-\Hypertarget{makerspace_8cpp_a8bfede1dfdfb7f9364632c6f5fb4a1f4}\label{makerspace_8cpp_a8bfede1dfdfb7f9364632c6f5fb4a1f4} 
-bool {\bfseries makerspace\+::input\+Error} (const int \&hours, const int \&minutes)
-\item 
-\Hypertarget{makerspace_8cpp_a1c227fa4375e1c4d80c0c932fde9f844}\label{makerspace_8cpp_a1c227fa4375e1c4d80c0c932fde9f844} 
-bool {\bfseries makerspace\+::exceed\+Time} (const int \&hours)
-\item 
-\Hypertarget{makerspace_8cpp_a03b3ea5c353bb89051f9de2e17945764}\label{makerspace_8cpp_a03b3ea5c353bb89051f9de2e17945764} 
-double {\bfseries makerspace\+::calculate\+Price} (const int \&hours, const int \&minutes)
-\item 
-\Hypertarget{makerspace_8cpp_a0af275f85476eb2dc69cf1ee206c59f9}\label{makerspace_8cpp_a0af275f85476eb2dc69cf1ee206c59f9} 
-void {\bfseries makerspace\+::print\+Price} (const int \&hours, const int \&minutes)
-\item 
-\Hypertarget{makerspace_8cpp_a05c2396325ff7c2498496173fca1a3c0}\label{makerspace_8cpp_a05c2396325ff7c2498496173fca1a3c0} 
+int \mbox{\hyperlink{namespacemakerspace_abe4feee0d73b7a8e2de47a4f9dacf7a0}{makerspace\+::input\+Int}} (std\+::istream \&in)
+\begin{DoxyCompactList}\small\item\em Check if input values as of type int. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacemakerspace_a8bfede1dfdfb7f9364632c6f5fb4a1f4}{makerspace\+::input\+Error}} (const int \&hours, const int \&minutes)
+\begin{DoxyCompactList}\small\item\em Check if input values are acceptable as a format of time. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacemakerspace_a1c227fa4375e1c4d80c0c932fde9f844}{makerspace\+::exceed\+Time}} (const int \&hours)
+\begin{DoxyCompactList}\small\item\em Check if input time (hours only) exceeds max printing time. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespacemakerspace_a03b3ea5c353bb89051f9de2e17945764}{makerspace\+::calculate\+Price}} (const int \&hours, const int \&minutes)
+\begin{DoxyCompactList}\small\item\em Calculate the price of 3D print based on total time to print. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacemakerspace_a0af275f85476eb2dc69cf1ee206c59f9}{makerspace\+::print\+Price}} (const int \&hours, const int \&minutes)
+\begin{DoxyCompactList}\small\item\em Print the price of the 3D print in a readable format. \end{DoxyCompactList}\item 
+\Hypertarget{namespacemakerspace_a05c2396325ff7c2498496173fca1a3c0}\label{namespacemakerspace_a05c2396325ff7c2498496173fca1a3c0} 
 void {\bfseries makerspace\+::get\+Price} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Run script to get the price of 3D print based on time. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-This file handles the calculations and ui for 3D printing costs. 
+This file handles the calculations and UI for 3D printing costs. 
 

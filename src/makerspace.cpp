@@ -1,6 +1,6 @@
 /**
  * @file makerspace.cpp
- * @brief This file handles the calculations and ui
+ * @brief This file handles the calculations and UI
  * for 3D printing costs.
  */
 
@@ -11,9 +11,12 @@
 #include <istream>
 #include "makerspace.h"
 
+/**
+ * @brief Holds the logic for 3D print calculations and UI
+ */
 namespace makerspace
 {
-	/*
+	/**
 	 * @brief Check if input values as of type int.
 	 *
 	 * @param in Takes the provided istream (std::cin)
@@ -48,7 +51,7 @@ namespace makerspace
 		return num;
 	}
 
-	/*
+	/**
 	 * @brief Check if input values are acceptable as a format of time.
 	 *
 	 * @param hours Total hours to print (exclude minutes).
@@ -84,7 +87,7 @@ namespace makerspace
 		return false;
 	}
 
-	/*
+	/**
 	 * @brief Check if input time (hours only) exceeds max printing time.
 	 *
 	 * @param hours Total hours to print (exclude minutes).
@@ -108,7 +111,7 @@ namespace makerspace
 		return false;
 	}
 
-	/*
+	/**
 	 * @brief Calculate the price of 3D print based on total time to print.
 	 *
 	 * @return double The price of the 3D print.
@@ -136,7 +139,7 @@ namespace makerspace
 		return currHourPrice + currMinPrice;
 	}
 
-	/*
+	/**
 	 * @brief Print the price of the 3D print in a readable format.
 	 *
 	 * @return void An output to the terminal for the price.
@@ -150,7 +153,7 @@ namespace makerspace
 		std::cout << "Price: $" << std::fixed << std::setprecision(2) << calculatePrice(hours, minutes) << '\n';
 	}
 
-	/*
+	/**
 	 * @brief Run script to get the price of 3D print based on time
 	 */
 	void getPrice()

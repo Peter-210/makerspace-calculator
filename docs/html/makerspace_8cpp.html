@@ -74,12 +74,13 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">makerspace.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This file handles the calculations and ui for 3D printing costs.  
+<p>This file handles the calculations and UI for 3D printing costs.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
@@ -92,7 +93,7 @@ Include dependency graph for makerspace.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="makerspace_8cpp__incl.png" border="0" usemap="#asrc_2makerspace_8cpp" alt=""/></div>
 <map name="asrc_2makerspace_8cpp" id="asrc_2makerspace_8cpp">
-<area shape="rect" title="This file handles the calculations and ui for 3D printing costs." alt="" coords="205,5,355,31"/>
+<area shape="rect" title="This file handles the calculations and UI for 3D printing costs." alt="" coords="205,5,355,31"/>
 <area shape="rect" title=" " alt="" coords="5,79,85,104"/>
 <area shape="poly" title=" " alt="" coords="243,33,97,77,96,72,242,28"/>
 <area shape="rect" title=" " alt="" coords="110,79,173,104"/>
@@ -109,29 +110,36 @@ Include dependency graph for makerspace.cpp:</div>
 </map>
 </div>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacemakerspace" id="r_namespacemakerspace"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemakerspace.html">makerspace</a></td></tr>
+<tr class="memdesc:namespacemakerspace"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the logic for 3D print calculations and UI. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:abe4feee0d73b7a8e2de47a4f9dacf7a0" id="r_abe4feee0d73b7a8e2de47a4f9dacf7a0"><td class="memItemLeft" align="right" valign="top"><a id="abe4feee0d73b7a8e2de47a4f9dacf7a0" name="abe4feee0d73b7a8e2de47a4f9dacf7a0"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>makerspace::inputInt</b> (std::istream &amp;in)</td></tr>
+<tr class="memitem:abe4feee0d73b7a8e2de47a4f9dacf7a0" id="r_abe4feee0d73b7a8e2de47a4f9dacf7a0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemakerspace.html#abe4feee0d73b7a8e2de47a4f9dacf7a0">makerspace::inputInt</a> (std::istream &amp;in)</td></tr>
+<tr class="memdesc:abe4feee0d73b7a8e2de47a4f9dacf7a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if input values as of type int.  <br /></td></tr>
 <tr class="separator:abe4feee0d73b7a8e2de47a4f9dacf7a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8bfede1dfdfb7f9364632c6f5fb4a1f4" id="r_a8bfede1dfdfb7f9364632c6f5fb4a1f4"><td class="memItemLeft" align="right" valign="top"><a id="a8bfede1dfdfb7f9364632c6f5fb4a1f4" name="a8bfede1dfdfb7f9364632c6f5fb4a1f4"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>makerspace::inputError</b> (const int &amp;hours, const int &amp;minutes)</td></tr>
+<tr class="memitem:a8bfede1dfdfb7f9364632c6f5fb4a1f4" id="r_a8bfede1dfdfb7f9364632c6f5fb4a1f4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemakerspace.html#a8bfede1dfdfb7f9364632c6f5fb4a1f4">makerspace::inputError</a> (const int &amp;hours, const int &amp;minutes)</td></tr>
+<tr class="memdesc:a8bfede1dfdfb7f9364632c6f5fb4a1f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if input values are acceptable as a format of time.  <br /></td></tr>
 <tr class="separator:a8bfede1dfdfb7f9364632c6f5fb4a1f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c227fa4375e1c4d80c0c932fde9f844" id="r_a1c227fa4375e1c4d80c0c932fde9f844"><td class="memItemLeft" align="right" valign="top"><a id="a1c227fa4375e1c4d80c0c932fde9f844" name="a1c227fa4375e1c4d80c0c932fde9f844"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>makerspace::exceedTime</b> (const int &amp;hours)</td></tr>
+<tr class="memitem:a1c227fa4375e1c4d80c0c932fde9f844" id="r_a1c227fa4375e1c4d80c0c932fde9f844"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemakerspace.html#a1c227fa4375e1c4d80c0c932fde9f844">makerspace::exceedTime</a> (const int &amp;hours)</td></tr>
+<tr class="memdesc:a1c227fa4375e1c4d80c0c932fde9f844"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if input time (hours only) exceeds max printing time.  <br /></td></tr>
 <tr class="separator:a1c227fa4375e1c4d80c0c932fde9f844"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03b3ea5c353bb89051f9de2e17945764" id="r_a03b3ea5c353bb89051f9de2e17945764"><td class="memItemLeft" align="right" valign="top"><a id="a03b3ea5c353bb89051f9de2e17945764" name="a03b3ea5c353bb89051f9de2e17945764"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>makerspace::calculatePrice</b> (const int &amp;hours, const int &amp;minutes)</td></tr>
+<tr class="memitem:a03b3ea5c353bb89051f9de2e17945764" id="r_a03b3ea5c353bb89051f9de2e17945764"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemakerspace.html#a03b3ea5c353bb89051f9de2e17945764">makerspace::calculatePrice</a> (const int &amp;hours, const int &amp;minutes)</td></tr>
+<tr class="memdesc:a03b3ea5c353bb89051f9de2e17945764"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the price of 3D print based on total time to print.  <br /></td></tr>
 <tr class="separator:a03b3ea5c353bb89051f9de2e17945764"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0af275f85476eb2dc69cf1ee206c59f9" id="r_a0af275f85476eb2dc69cf1ee206c59f9"><td class="memItemLeft" align="right" valign="top"><a id="a0af275f85476eb2dc69cf1ee206c59f9" name="a0af275f85476eb2dc69cf1ee206c59f9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>makerspace::printPrice</b> (const int &amp;hours, const int &amp;minutes)</td></tr>
+<tr class="memitem:a0af275f85476eb2dc69cf1ee206c59f9" id="r_a0af275f85476eb2dc69cf1ee206c59f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemakerspace.html#a0af275f85476eb2dc69cf1ee206c59f9">makerspace::printPrice</a> (const int &amp;hours, const int &amp;minutes)</td></tr>
+<tr class="memdesc:a0af275f85476eb2dc69cf1ee206c59f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the price of the 3D print in a readable format.  <br /></td></tr>
 <tr class="separator:a0af275f85476eb2dc69cf1ee206c59f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05c2396325ff7c2498496173fca1a3c0" id="r_a05c2396325ff7c2498496173fca1a3c0"><td class="memItemLeft" align="right" valign="top"><a id="a05c2396325ff7c2498496173fca1a3c0" name="a05c2396325ff7c2498496173fca1a3c0"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>makerspace::getPrice</b> ()</td></tr>
+<tr class="memdesc:a05c2396325ff7c2498496173fca1a3c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run script to get the price of 3D print based on time. <br /></td></tr>
 <tr class="separator:a05c2396325ff7c2498496173fca1a3c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file handles the calculations and ui for 3D printing costs. </p>
+<div class="textblock"><p>This file handles the calculations and UI for 3D printing costs. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

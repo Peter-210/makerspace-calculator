@@ -1,0 +1,127 @@
+\doxysection{makerspace Namespace Reference}
+\hypertarget{namespacemakerspace}{}\label{namespacemakerspace}\index{makerspace@{makerspace}}
+
+
+Holds the logic for 3D print calculations and UI.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespacemakerspace_abe4feee0d73b7a8e2de47a4f9dacf7a0}{input\+Int}} (std\+::istream \&in)
+\begin{DoxyCompactList}\small\item\em Check if input values as of type int. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacemakerspace_a8bfede1dfdfb7f9364632c6f5fb4a1f4}{input\+Error}} (const int \&hours, const int \&minutes)
+\begin{DoxyCompactList}\small\item\em Check if input values are acceptable as a format of time. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacemakerspace_a1c227fa4375e1c4d80c0c932fde9f844}{exceed\+Time}} (const int \&hours)
+\begin{DoxyCompactList}\small\item\em Check if input time (hours only) exceeds max printing time. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespacemakerspace_a03b3ea5c353bb89051f9de2e17945764}{calculate\+Price}} (const int \&hours, const int \&minutes)
+\begin{DoxyCompactList}\small\item\em Calculate the price of 3D print based on total time to print. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacemakerspace_a0af275f85476eb2dc69cf1ee206c59f9}{print\+Price}} (const int \&hours, const int \&minutes)
+\begin{DoxyCompactList}\small\item\em Print the price of the 3D print in a readable format. \end{DoxyCompactList}\item 
+\Hypertarget{namespacemakerspace_a05c2396325ff7c2498496173fca1a3c0}\label{namespacemakerspace_a05c2396325ff7c2498496173fca1a3c0} 
+void {\bfseries get\+Price} ()
+\begin{DoxyCompactList}\small\item\em Run script to get the price of 3D print based on time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Holds the logic for 3D print calculations and UI. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacemakerspace_a03b3ea5c353bb89051f9de2e17945764}\label{namespacemakerspace_a03b3ea5c353bb89051f9de2e17945764} 
+\index{makerspace@{makerspace}!calculatePrice@{calculatePrice}}
+\index{calculatePrice@{calculatePrice}!makerspace@{makerspace}}
+\doxysubsubsection{\texorpdfstring{calculatePrice()}{calculatePrice()}}
+{\footnotesize\ttfamily double makerspace\+::calculate\+Price (\begin{DoxyParamCaption}\item[{const int \&}]{hours,  }\item[{const int \&}]{minutes }\end{DoxyParamCaption})}
+
+
+
+Calculate the price of 3D print based on total time to print. 
+
+\begin{DoxyReturn}{Returns}
+double The price of the 3D print.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em hours} & Total hours to print (exclude minutes). \\
+\hline
+{\em minutes} & Total minutes to print (exclude hours).\\
+\hline
+\end{DoxyParams}
+Charged as \$2.00 for every hour; \$0.50 for every 15 minutes. Price is rounded up (ceiling) to the nearest 15 minutes.
+
+@usage calculate\+Price(2, 40); // return 5.\+5 calculate\+Price(0, 25); // return 1.\+0 \Hypertarget{namespacemakerspace_a1c227fa4375e1c4d80c0c932fde9f844}\label{namespacemakerspace_a1c227fa4375e1c4d80c0c932fde9f844} 
+\index{makerspace@{makerspace}!exceedTime@{exceedTime}}
+\index{exceedTime@{exceedTime}!makerspace@{makerspace}}
+\doxysubsubsection{\texorpdfstring{exceedTime()}{exceedTime()}}
+{\footnotesize\ttfamily bool makerspace\+::exceed\+Time (\begin{DoxyParamCaption}\item[{const int \&}]{hours }\end{DoxyParamCaption})}
+
+
+
+Check if input time (hours only) exceeds max printing time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hours} & Total hours to print (exclude minutes).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean If true, the input time exceeds max printing time. Else false.
+\end{DoxyReturn}
+@usage exceed\+Time(1); // return false exceed\+Time(2); // return false exceed\+Time(3); // return false exceed\+Time(4); // return true exceed\+Time(5); // return true \Hypertarget{namespacemakerspace_a8bfede1dfdfb7f9364632c6f5fb4a1f4}\label{namespacemakerspace_a8bfede1dfdfb7f9364632c6f5fb4a1f4} 
+\index{makerspace@{makerspace}!inputError@{inputError}}
+\index{inputError@{inputError}!makerspace@{makerspace}}
+\doxysubsubsection{\texorpdfstring{inputError()}{inputError()}}
+{\footnotesize\ttfamily bool makerspace\+::input\+Error (\begin{DoxyParamCaption}\item[{const int \&}]{hours,  }\item[{const int \&}]{minutes }\end{DoxyParamCaption})}
+
+
+
+Check if input values are acceptable as a format of time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hours} & Total hours to print (exclude minutes). \\
+\hline
+{\em minutes} & Total minutes to print (exclude hours).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean If true, the input time is invalid. Else false.
+\end{DoxyReturn}
+@usage input\+Error(2, 40); // return false input\+Error(0, 25); // return false input\+Error(-\/1, 40); // return true input\+Error(1, -\/1); // return true input\+Error(1, 60); // return true input\+Error(0, 0); // return true \Hypertarget{namespacemakerspace_abe4feee0d73b7a8e2de47a4f9dacf7a0}\label{namespacemakerspace_abe4feee0d73b7a8e2de47a4f9dacf7a0} 
+\index{makerspace@{makerspace}!inputInt@{inputInt}}
+\index{inputInt@{inputInt}!makerspace@{makerspace}}
+\doxysubsubsection{\texorpdfstring{inputInt()}{inputInt()}}
+{\footnotesize\ttfamily int makerspace\+::input\+Int (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{in }\end{DoxyParamCaption})}
+
+
+
+Check if input values as of type int. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & Takes the provided istream (std\+::cin)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns a positive or zero integer when valid. Else returns -\/1. 
+\end{DoxyReturn}
+\Hypertarget{namespacemakerspace_a0af275f85476eb2dc69cf1ee206c59f9}\label{namespacemakerspace_a0af275f85476eb2dc69cf1ee206c59f9} 
+\index{makerspace@{makerspace}!printPrice@{printPrice}}
+\index{printPrice@{printPrice}!makerspace@{makerspace}}
+\doxysubsubsection{\texorpdfstring{printPrice()}{printPrice()}}
+{\footnotesize\ttfamily void makerspace\+::print\+Price (\begin{DoxyParamCaption}\item[{const int \&}]{hours,  }\item[{const int \&}]{minutes }\end{DoxyParamCaption})}
+
+
+
+Print the price of the 3D print in a readable format. 
+
+\begin{DoxyReturn}{Returns}
+void An output to the terminal for the price.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em hours} & Total hours to print (exclude minutes) \\
+\hline
+{\em minutes} & Total minutes to print (exclude hours) \\
+\hline
+\end{DoxyParams}
