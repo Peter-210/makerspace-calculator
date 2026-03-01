@@ -4,7 +4,7 @@
 
 namespace makerspace
 {
-	int inputInt(std::istream& in);
+	int inputInt(std::istream& userInput);
 	bool inputError(const int& hours, const int& minutes);
 	bool exceedTime(const int& hours);
 	double calculatePrice(const int& hours, const int& minutes);

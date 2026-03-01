@@ -1,6 +1,10 @@
 Checks: >
+  google-*,
+  cppcoreguidelines-*,
   modernize-*,
   readability-*,
-  performance-*
+  performance-*,
+  -modernize-use-trailing-return-type,
+  -google-readability-namespace-comments
 WarningsAsErrors: ''
 HeaderFilterRegex: '.*'
