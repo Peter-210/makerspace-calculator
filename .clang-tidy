@@ -2,6 +2,7 @@ Checks: >
   misc-include-cleaner,
   google-*,
   cppcoreguidelines-*,
+  clang-analyzer-*,
   modernize-*,
   readability-*,
   performance-*,
