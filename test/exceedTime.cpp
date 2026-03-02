@@ -1,5 +1,6 @@
-#include "gtest/gtest.h"
 #include "makerspace.h"
+
+#include "gtest/gtest.h"
 
 TEST(ExceedTime, HoursOnly)
 {

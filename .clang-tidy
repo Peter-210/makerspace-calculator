@@ -1,4 +1,5 @@
 Checks: >
+  misc-include-cleaner,
   google-*,
   cppcoreguidelines-*,
   modernize-*,
