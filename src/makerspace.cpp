@@ -71,7 +71,8 @@ namespace makerspace
 	 */
 	bool inputError(const int& hours, const int& minutes)
 	{
-		const int MAX_MINUTES {60};
+		constexpr int MAX_MINUTES {60};
+
 		if (hours == 0 && minutes == 0)
 		{
 			return true;
@@ -106,7 +107,7 @@ namespace makerspace
 	 */
 	bool exceedTime(const int& hours)
 	{
-		const int EXCEED_LIMIT_HOURS {4};
+		constexpr int EXCEED_LIMIT_HOURS {4};
 
 		return hours >= EXCEED_LIMIT_HOURS;
 	}
@@ -129,9 +130,9 @@ namespace makerspace
 	 */
 	double calculatePrice(const int& hours, const int& minutes)
 	{
-		const double HOUR_PRICE { 2.00 };
-		const double MINUTE_PRICE { 0.50 };
-		const double MINUTE_RATE { 15 };
+		constexpr double HOUR_PRICE { 2.00 };
+		constexpr double MINUTE_PRICE { 0.50 };
+		constexpr double MINUTE_RATE { 15 };
 
 		double currHourPrice { hours * HOUR_PRICE };
 		double currMinPrice { ceil(minutes / MINUTE_RATE) * MINUTE_PRICE };
