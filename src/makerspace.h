@@ -1,8 +1,9 @@
-#pragma once
+#ifndef MAKERSPACE_H
+#define MAKERSPACE_H
 
 #include <iostream>
 
-namespace makerspace
+namespace Makerspace
 {
 	int inputInt(std::istream& userInput);
 	bool inputError(const int& hours, const int& minutes);
@@ -11,3 +12,5 @@ namespace makerspace
 	void printPrice(const int& hours, const int& minutes);
 	void getPrice();
 }
+
+#endif

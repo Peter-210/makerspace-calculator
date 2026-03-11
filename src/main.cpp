@@ -4,7 +4,7 @@ int main()
 {
 	while (true)
 	{
-		makerspace::getPrice();
+		Makerspace::getPrice();
 	}
 
 	return 0;

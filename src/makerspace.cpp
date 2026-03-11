@@ -5,6 +5,7 @@
  */
 
 #include "makerspace.h"
+#include "constants.h"
 
 #include <cmath>
 #include <cstdio>
@@ -15,7 +16,7 @@
 /**
  * @brief Holds the logic for 3D print calculations and UI
  */
-namespace makerspace
+namespace Makerspace
 {
 	/**
 	 * @brief Check if input values as of type int.
@@ -107,9 +108,8 @@ namespace makerspace
 	 */
 	bool exceedTime(const int& hours)
 	{
-		constexpr int EXCEED_LIMIT_HOURS {4};
 
-		return hours >= EXCEED_LIMIT_HOURS;
+		return hours >= Constants::EXCEED_LIMIT_HOURS;
 	}
 
 	/**
@@ -130,12 +130,8 @@ namespace makerspace
 	 */
 	double calculatePrice(const int& hours, const int& minutes)
 	{
-		constexpr double HOUR_PRICE { 2.00 };
-		constexpr double MINUTE_PRICE { 0.50 };
-		constexpr double MINUTE_RATE { 15 };
-
-		double currHourPrice { hours * HOUR_PRICE };
-		double currMinPrice { ceil(minutes / MINUTE_RATE) * MINUTE_PRICE };
+		double currHourPrice { hours * Constants::HOUR_PRICE };
+		double currMinPrice { ceil(minutes / Constants::MINUTE_RATE) * Constants::MINUTE_PRICE };
 
 		return currHourPrice + currMinPrice;
 	}
@@ -176,7 +172,7 @@ namespace makerspace
 
 		if (exceedTime(hours))
 		{
-			std::cout << "WARNING - Time exceeds 4 hour limit\n";
+			std::cout << "WARNING - Time exceeds " << Constants::EXCEED_LIMIT_HOURS << " hour limit\n";
 		}
 
 		printPrice(hours, minutes);
