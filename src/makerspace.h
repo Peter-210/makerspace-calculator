@@ -6,7 +6,6 @@
 #ifndef MAKERSPACE_H
 #define MAKERSPACE_H
 
-#include "makerspace-constexpr.h"
 #include <iostream>
 
 /**
@@ -15,6 +14,9 @@
 namespace Makerspace
 {
 	int inputInt(std::istream& userInput);
+	bool inputError(int hours, int minutes);
+	bool exceedTime(int hours);
+	double calculatePrice(int hours, int minutes);
 	void printPrice(int hours, int minutes);
 	void getPrice();
 }
