@@ -30,9 +30,9 @@ namespace Makerspace {
 	 * inputError(1, 60); 	// return true
 	 * inputError(0, 0); 		// return true
 	 */
-	constexpr bool inputError(const int hours, const int minutes)
+	constexpr bool inputError(int hours, int minutes)
 	{
-		constexpr int MAX_MINUTES {60};
+		constexpr int maxMinutes {60};
 
 		if (hours == 0 && minutes == 0)
 		{
@@ -44,7 +44,7 @@ namespace Makerspace {
 			return true;
 		}
 
-		if (minutes < 0 || minutes >= MAX_MINUTES)
+		if (minutes < 0 || minutes >= maxMinutes)
 		{
 			return true;
 		}
@@ -66,10 +66,10 @@ namespace Makerspace {
 	 * exceedTime(4); 	// return true
 	 * exceedTime(5); 	// return true
 	 */
-	constexpr bool exceedTime(const int hours)
+	constexpr bool exceedTime(int hours)
 	{
 
-		return hours >= Constants::EXCEED_LIMIT_HOURS;
+		return hours >= Constants::exceedLimitHours;
 	}
 
 	/**
@@ -88,10 +88,10 @@ namespace Makerspace {
 	 * calculatePrice(2, 40);		// return 5.5
 	 * calculatePrice(0, 25);		// return 1.0
 	 */
-	constexpr double calculatePrice(const int hours, const int minutes)
+	constexpr double calculatePrice(int hours, int minutes)
 	{
-		const double currHourPrice { hours * Constants::HOUR_PRICE };
-		const double currMinPrice { ceil(minutes / Constants::MINUTE_RATE) * Constants::MINUTE_PRICE };
+		const double currHourPrice { hours * Constants::hourPrice };
+		const double currMinPrice { ceil(minutes / Constants::minuteRate) * Constants::minutePrice };
 
 		return currHourPrice + currMinPrice;
 	}

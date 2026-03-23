@@ -61,7 +61,7 @@ namespace Makerspace
 	 * @param hours Total hours to print (exclude minutes)
 	 * @param minutes Total minutes to print (exclude hours)
 	 */
-	void printPrice(const int hours, const int minutes)
+	void printPrice(int hours, int minutes)
 	{
 		std::cout << "Time: " << hours << "h " << minutes << "m\n";
 		std::cout << "Price: $" << std::fixed << std::setprecision(2) << calculatePrice(hours, minutes) << '\n';
@@ -89,7 +89,7 @@ namespace Makerspace
 
 		if (exceedTime(hours))
 		{
-			std::cout << "WARNING - Time exceeds " << Constants::EXCEED_LIMIT_HOURS << " hour limit\n";
+			std::cout << "WARNING - Time exceeds " << Constants::exceedLimitHours << " hour limit\n";
 		}
 
 		printPrice(hours, minutes);

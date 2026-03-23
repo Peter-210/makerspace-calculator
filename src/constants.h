@@ -10,10 +10,10 @@
  * @brief Holds all constants for the Makerspace namespace
  */
 namespace Constants {
-	inline constexpr int EXCEED_LIMIT_HOURS {4};
-	inline constexpr double HOUR_PRICE {2.00};
-	inline constexpr double MINUTE_PRICE {0.50};
-	inline constexpr double MINUTE_RATE {15};
+	inline constexpr int exceedLimitHours {4};
+	inline constexpr double hourPrice {2.00};
+	inline constexpr double minutePrice {0.50};
+	inline constexpr double minuteRate {15};
 }
 
 #endif

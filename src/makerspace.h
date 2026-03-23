@@ -15,7 +15,7 @@
 namespace Makerspace
 {
 	int inputInt(std::istream& userInput);
-	void printPrice(const int hours, const int minutes);
+	void printPrice(int hours, int minutes);
 	void getPrice();
 }
 
