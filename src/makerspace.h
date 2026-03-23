@@ -6,6 +6,7 @@
 #ifndef MAKERSPACE_H
 #define MAKERSPACE_H
 
+#include "constants.h"
 #include <iostream>
 
 /**
@@ -14,9 +15,17 @@
 namespace Makerspace
 {
 	bool inputError(int hours, int minutes);
-	bool exceedTime(int hours);
-	double calculatePrice(int hours, int minutes);
-	void getPrice();
+	bool exceedTime(int hours, 
+			int exceedLimitHours = Constants::k_exceedLimitHours
+			);
+	double calculatePrice(int hours, int minutes, 
+			double hourPrice = Constants::k_hourPrice, 
+			double minuteRate = Constants::k_minuteRate, 
+			double minutePrice = Constants::k_minutePrice
+			);
+	void getPrice(
+			int exceedLimitHours = Constants::k_exceedLimitHours
+			);
 }
 
 #endif

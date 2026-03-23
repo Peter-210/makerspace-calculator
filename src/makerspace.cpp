@@ -84,6 +84,7 @@ namespace Makerspace
 	 * @brief Check if input time (hours only) exceeds max printing time.
 	 *
 	 * @param hours Total hours to print (exclude minutes).
+	 * @param k_exceedLimitHours A constant for the maximum limit of hours allowed in a 3D print.
 	 *
 	 * @returns boolean If true, the input time exceeds max printing time. Else false.
 	 *
@@ -94,10 +95,10 @@ namespace Makerspace
 	 * exceedTime(4); 	// return true
 	 * exceedTime(5); 	// return true
 	 */
-	bool exceedTime(int hours)
+	bool exceedTime(int hours, int k_exceedLimitHours)
 	{
 
-		return hours >= Constants::exceedLimitHours;
+		return hours >= k_exceedLimitHours;
 	}
 
 	/**
@@ -107,6 +108,9 @@ namespace Makerspace
 	 *
 	 * @param hours Total hours to print (exclude minutes).
 	 * @param minutes Total minutes to print (exclude hours).
+	 * @param k_hourPrice A constant for the price per hour.
+	 * @param k_minuteRate A constant for the rate to charge for minutes.
+	 * @param k_minutePrice A constant for the price per minute rate.
 	 *
 	 * @details
 	 * Charged as $2.00 for every hour; $0.50 for every 15 minutes.
@@ -116,10 +120,10 @@ namespace Makerspace
 	 * calculatePrice(2, 40);		// return 5.5
 	 * calculatePrice(0, 25);		// return 1.0
 	 */
-	double calculatePrice(int hours, int minutes)
+	double calculatePrice(int hours, int minutes, double k_hourPrice, double k_minuteRate, double k_minutePrice)
 	{
-		const double currHourPrice { hours * Constants::hourPrice };
-		const double currMinPrice { ceil(minutes / Constants::minuteRate) * Constants::minutePrice };
+		const double currHourPrice { hours * k_hourPrice };
+		const double currMinPrice { ceil(minutes / k_minuteRate) * k_minutePrice };
 
 		return currHourPrice + currMinPrice;
 	}
@@ -140,8 +144,10 @@ namespace Makerspace
 
 	/**
 	 * @brief Run script to get the price of 3D print based on time
+	 *
+	 * @param k_exceedLimitHours A constant for the maximum limit of hours allowed in a 3D print.
 	 */
-	void getPrice()
+	void getPrice(int k_exceedLimitHours)
 	{
 		std::string hourMessage {"Input Hours: "};
 		const int hours { inputInt(hourMessage) };
@@ -160,7 +166,7 @@ namespace Makerspace
 
 		if (exceedTime(hours))
 		{
-			std::cout << "WARNING - Time exceeds " << Constants::exceedLimitHours << " hour limit\n";
+			std::cout << "WARNING - Time exceeds " << k_exceedLimitHours << " hour limit\n";
 		}
 
 		printPrice(hours, minutes);
