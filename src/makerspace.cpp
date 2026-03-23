@@ -6,7 +6,10 @@
 
 #include "makerspace.h"
 #include "constants.h"
+#include "stream_validation.h"
 
+#include <string>
+#include <string_view>
 #include <cmath>
 #include <cstdio>
 #include <iomanip>
@@ -19,39 +22,24 @@
 namespace Makerspace
 {
 	/**
-	 * @brief Check if input values as of type int.
+	 * @brief Get an integer value from the user. Comes with input validation.
 	 *
-	 * @param userInput Takes the provided istream (std::cin)
-	 *
-	 * @returns int Returns a positive or zero integer when valid. Else returns -1.
+	 * @returns int Returns a positive or zero integer when valid.
 	 */
-	int inputInt(std::istream& userInput)
+	int inputInt(std::string_view message)
 	{
-		int num {};
-		userInput >> num;
+		while (true) {
+			std::cout << message;
+			int num {};
+			std::cin >> num;
 
-		auto clearInput
-		{
-			[&](std::istream& stream) -> void 
-			{
-				stream.clear();
-				stream.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			if (StreamValid::invalidInput()) {
+				std::cout << "Invalid input. Please try again.\n";
+				continue;
 			}
-		};
 
-		if (userInput.fail()) 
-		{
-			clearInput(userInput);
-			return -1;
-		} 
-		
-		if (userInput.peek() != '\n' && userInput.peek() != EOF) 
-		{
-			clearInput(userInput);
-			return -1;
+			return num;
 		}
-
-		return num;
 	}
 
 	/**
@@ -155,11 +143,11 @@ namespace Makerspace
 	 */
 	void getPrice()
 	{
-		std::cout << "Input Hours:\n";
-		const int hours { inputInt(std::cin) };
+		std::string hourMessage {"Input Hours: "};
+		const int hours { inputInt(hourMessage) };
 
-		std::cout << "Input Minutes:\n";
-		const int minutes { inputInt(std::cin) };
+		std::string minuteMessage {"Input Minutes: "};
+		const int minutes { inputInt(minuteMessage) };
 
 		if (inputError(hours, minutes))
 		{
